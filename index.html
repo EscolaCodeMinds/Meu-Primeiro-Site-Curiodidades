@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Meu Site de Curiosidades</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- ==================== NAVBAR ==================== -->
+  <nav class="navbar navbar-expand-lg sticky-top" style="background: var(--panel); border-bottom:1px solid rgba(124,58,237,.15)">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#"><b>Curio</b>Site</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Alternar navegação">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="#grid">Explorar</a></li>
+          <li class="nav-item"><a class="nav-link" href="#como-funciona">Como funciona</a></li>
+        </ul>
+        <div class="d-flex gap-2">
+          <button id="themeToggle" class="btn btn-outline-secondary" type="button" aria-pressed="false" title="Alternar tema">🌙</button>
+          <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasAdd" aria-controls="offcanvasAdd">+ Nova curiosidade</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ==================== HERO / BUSCA ==================== -->
+  <header class="hero">
+    <div class="container">
+      <div class="row g-4 align-items-stretch">
+        <div class="col-lg-7">
+          <h1 class="display-5 fw-extrabold">Meu primeiro <span style="color:var(--brand)">site</span> de curiosidades</h1>
+          <p class="lead visually-muted mb-4">HTML = estrutura • CSS = visual • JS = comportamento. Escolha um tema que você ama (animes, mangás, animais, espaço…) e compartilhe descobertas! 🎯</p>
+
+          <!-- Chips de filtro por categoria -->
+          <div id="chips" class="d-flex flex-wrap gap-2 mb-3">
+            <!-- Criadas dinamicamente no JS -->
+          </div>
+
+          <!-- Busca e ordenação -->
+          <div class="search-card rounded-4 p-3">
+            <div class="row g-2 align-items-center">
+              <div class="col-md-8">
+                <div class="input-group">
+                  <span class="input-group-text">🔎</span>
+                  <input id="searchInput" type="search" class="form-control" placeholder="Buscar curiosidades por título, texto ou tag…" />
+                </div>
+              </div>
+              <div class="col-md-4">
+                <select id="sortSelect" class="form-select" aria-label="Ordenar resultados">
+                  <option value="recent">Mais recentes</option>
+                  <option value="alpha">A–Z (título)</option>
+                  <option value="likes">Mais curtidas</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="p-3 rounded-4" style="background:var(--panel); border:1px solid rgba(124,58,237,.15)">
+            <h5 class="fw-bold mb-3">Como cada parte funciona?</h5>
+            <ul class="mb-0">
+              <li><b>HTML</b> é o <i>esqueleto</i>: títulos, parágrafos, imagens e links (as "peças").</li>
+              <li><b>CSS</b> é a <i>roupa</i>: cores, tamanhos, fontes e espaçamentos (o "estilo").</li>
+              <li><b>JavaScript</b> é o <i>cérebro</i>: cliques, buscas, filtros e contadores (as "ações").</li>
+            </ul>
+            <hr>
+            <p class="mb-1"><b>Dica de design:</b> escolha uma paleta com 2–3 cores e use bem o espaço em branco. Títulos curtos, imagens em boa resolução e textos objetivos deixam tudo mais bonito e legível.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== GRID ==================== -->
+  <main class="py-4" id="grid">
+    <div class="container">
+      <div id="cardsRow" class="row g-4">
+        <!-- Cards gerados pelo JS -->
+      </div>
+
+      <div id="emptyState" class="empty-state mt-4 d-none">
+        <h5 class="fw-bold">Nenhum resultado encontrado</h5>
+        <p class="visually-muted mb-2">Tente limpar a busca, trocar a categoria ou <a href="#" class="link-like" data-bs-toggle="offcanvas" data-bs-target="#offcanvasAdd">adicionar uma nova curiosidade</a>.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- ==================== COMO FUNCIONA ==================== -->
+  <section class="py-5" id="como-funciona">
+    <div class="container">
+      <div class="row gy-4 align-items-center">
+        <div class="col-lg-6">
+          <h2 class="fw-bold mb-3">Construção do site em camadas</h2>
+          <ol class="mb-3">
+            <li><b>HTML</b>: crie a estrutura e o conteúdo (títulos, textos, imagens, links).</li>
+            <li><b>CSS</b>: aplique estilos (cores, fontes, layout responsivo).</li>
+            <li><b>JS</b>: adicione lógica (busca, filtro, curtidas, modal de detalhes).</li>
+            <li><b>Bootstrap</b>: use componentes prontos e grade responsiva para acelerar.</li>
+          </ol>
+          <p class="visualmente-muted">Agora o projeto está separado em <code>index.html</code>, <code>style.css</code> e <code>script.js</code> para facilitar as 4 aulas.</p>
+        </div>
+        <div class="col-lg-6">
+          <div class="p-3 rounded-4" style="background:var(--panel); border:1px solid rgba(124,58,237,.15)">
+            <h6 class="text-uppercase visually-muted">Storytelling sugerido</h6>
+            <p class="mb-2">“Você é curador(a) de um museu de curiosidades digitais. Cada card é uma peça de exposição com foto, título, texto curto e tags. Os visitantes podem buscar, filtrar e curtir o que mais chama atenção.”</p>
+            <p class="mb-0"><b>Extensões possíveis:</b> ranking das mais curtidas, páginas por tema (Animes, Animais…), galeria de imagens e modo leitura.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== OFFCANVAS: NOVA CURIOSIDADE ==================== -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasAdd" aria-labelledby="offcanvasAddLabel">
+    <div class="offcanvas-header">
+      <h5 id="offcanvasAddLabel" class="fw-bold">Adicionar nova curiosidade</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Fechar"></button>
+    </div>
+    <div class="offcanvas-body">
+      <form id="formAdd" class="needs-validation" novalidate>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="fldTitle" placeholder="Título" required>
+          <label for="fldTitle">Título</label>
+          <div class="invalid-feedback">Digite um título.</div>
+        </div>
+        <div class="form-floating mb-3">
+          <textarea class="form-control" id="fldText" style="height: 120px" placeholder="Texto da curiosidade" required></textarea>
+          <label for="fldText">Texto da curiosidade</label>
+          <div class="invalid-feedback">Digite um texto curto.</div>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="url" class="form-control" id="fldImage" placeholder="URL da imagem (https://...)" required>
+          <label for="fldImage">URL da imagem (https://…)</label>
+          <div class="invalid-feedback">Forneça um link de imagem válido.</div>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="fldCategory" placeholder="Categoria (ex.: Animes, Animais, Astronomia)" required>
+          <label for="fldCategory">Categoria (ex.: Animes, Animais, Astronomia)</label>
+          <div class="invalid-feedback">Informe uma categoria.</div>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="fldTags" placeholder="Tags separadas por vírgula (ex.: gato, ronronar)" />
+          <label for="fldTags">Tags separadas por vírgula (ex.: gato, ronronar)</label>
+        </div>
+        <div class="d-grid">
+          <button class="btn btn-primary" type="submit">Adicionar ao site</button>
+        </div>
+      </form>
+      <p class="small visually-muted mt-3">Dica: use imagens livres (Unsplash, Pexels) e cite a fonte se necessário.</p>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL: DETALHES ==================== -->
+  <div class="modal fade" id="modalDetails" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content" style="background:var(--panel)">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalTitle">Título</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body">
+          <img id="modalImage" class="img-fluid rounded mb-3" alt="Imagem da curiosidade" />
+          <p id="modalText"></p>
+          <div class="d-flex gap-2 flex-wrap" id="modalTags"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer py-4 mt-4">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+      <p class="mb-0 visually-muted">Feito com HTML, CSS, JS e Bootstrap • Salva preferências no seu navegador (LocalStorage)</p>
+      <a class="link-like" href="#" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;">Voltar ao topo ↑</a>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
